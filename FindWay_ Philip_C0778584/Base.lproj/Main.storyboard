@@ -15,6 +15,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqA-7h-3Ny">
+                                <rect key="frame" x="264" y="699" width="72" height="73"/>
+                                <state key="normal" image="arrow_location"/>
+                            </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VDn-rl-LS1">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </mapView>
@@ -25,13 +29,18 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VDn-rl-LS1" secondAttribute="trailing" id="cSP-Ve-s6F"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VDn-rl-LS1" secondAttribute="bottom" id="gEk-eY-Dly"/>
                             <constraint firstItem="VDn-rl-LS1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lLs-6d-YOa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pqA-7h-3Ny" secondAttribute="bottom" constant="90" id="tCv-rQ-fAV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pqA-7h-3Ny" secondAttribute="trailing" constant="78" id="tiM-fI-F36"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="139"/>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow_location" width="72" height="73"/>
+    </resources>
 </document>
