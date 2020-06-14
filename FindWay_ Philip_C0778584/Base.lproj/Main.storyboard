@@ -18,6 +18,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqA-7h-3Ny">
                                 <rect key="frame" x="264" y="699" width="72" height="73"/>
                                 <state key="normal" image="arrow_location"/>
+                                <connections>
+                                    <action selector="btnClickgo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AQE-JA-hR2"/>
+                                </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VDn-rl-LS1">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
@@ -34,6 +37,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="btnGo" destination="pqA-7h-3Ny" id="p6w-up-HTT"/>
+                        <outlet property="mapView" destination="VDn-rl-LS1" id="i3i-lY-joE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
