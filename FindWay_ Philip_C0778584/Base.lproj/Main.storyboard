@@ -15,31 +15,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqA-7h-3Ny">
-                                <rect key="frame" x="264" y="699" width="72" height="73"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VDn-rl-LS1">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TME-J7-aiC">
+                                <rect key="frame" x="270" y="696" width="72" height="73"/>
                                 <state key="normal" image="arrow_location"/>
                                 <connections>
-                                    <action selector="btnClickgo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AQE-JA-hR2"/>
+                                    <action selector="findMyWay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kpv-uo-Bii"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VDn-rl-LS1">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                            </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pgo-45-jJv">
+                                <rect key="frame" x="124" y="803" width="131" height="32"/>
+                                <segments>
+                                    <segment title="Walk"/>
+                                    <segment title="Drive"/>
+                                </segments>
+                                <connections>
+                                    <action selector="indexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="9aK-HZ-4tI"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="pgo-45-jJv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="124" id="5GO-oB-61L"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pgo-45-jJv" secondAttribute="bottom" constant="28" id="HIX-Qv-ZVH"/>
                             <constraint firstItem="VDn-rl-LS1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="R16-WV-yRG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VDn-rl-LS1" secondAttribute="trailing" id="cSP-Ve-s6F"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VDn-rl-LS1" secondAttribute="bottom" id="gEk-eY-Dly"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TME-J7-aiC" secondAttribute="trailing" constant="72" id="hx0-GP-tzY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TME-J7-aiC" secondAttribute="bottom" constant="93" id="l0L-IR-sih"/>
                             <constraint firstItem="VDn-rl-LS1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lLs-6d-YOa"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pqA-7h-3Ny" secondAttribute="bottom" constant="90" id="tCv-rQ-fAV"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pqA-7h-3Ny" secondAttribute="trailing" constant="78" id="tiM-fI-F36"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pgo-45-jJv" secondAttribute="trailing" constant="159" id="oZn-77-1I3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="btnGo" destination="pqA-7h-3Ny" id="p6w-up-HTT"/>
-                        <outlet property="mapView" destination="VDn-rl-LS1" id="i3i-lY-joE"/>
+                        <outlet property="btnFindWay" destination="TME-J7-aiC" id="Qt7-6u-5fZ"/>
+                        <outlet property="mapView" destination="VDn-rl-LS1" id="73D-d0-xjn"/>
+                        <outlet property="segmentType" destination="pgo-45-jJv" id="oNt-g9-Nl6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
