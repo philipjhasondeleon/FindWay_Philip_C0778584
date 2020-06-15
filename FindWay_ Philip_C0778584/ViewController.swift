@@ -21,7 +21,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     var aLon: CLLocationDegrees??
     var location: CLLocation?
     
-
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +39,50 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         mapView.showsUserLocation = true
         mapView.isZoomEnabled = false
         
-
+        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+        tap.numberOfTapsRequired = 2
+        mapView.addGestureRecognizer(tap)
     }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+            
+            location = locations.first!
+            let coordinateRegion = MKCoordinateRegion(center: location!.coordinate, latitudinalMeters: 1000, longitudinalMeters:1000)
+        mapView.setRegion(coordinateRegion, animated: true)
+            locationManager.stopUpdatingLocation()
+        }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
+        renderer.strokeColor = UIColor.yellow
+        renderer.lineWidth = 3;
+        return renderer
+    }
+    
+    @objc func doubleTapped(sender: UIGestureRecognizer){
+           
+            let locationInView = sender.location(in: mapView)
+            let locationOnMap = mapView.convert(locationInView, toCoordinateFrom: mapView)
+            addAnnotation(location: locationOnMap)
+        
+    }
+    
+ 
+    
+    
+     func addAnnotation(location: CLLocationCoordinate2D)
+        {
+           
+            let oldAnnotations = self.mapView.annotations
+            self.mapView.removeAnnotations(oldAnnotations)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = location
+            aLat = annotation.coordinate.latitude
+            aLon = annotation.coordinate.longitude
+            annotation.title = "Destination"
+            annotation.subtitle = "Here is your place"
+            self.mapView.addAnnotation(annotation)
+        }
 }
 
 
